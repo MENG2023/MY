@@ -1,0 +1,60 @@
+MySQL 数据库操作和表操作
+  
+数据库操作:
+1.查看所有数据库  show databases;
+2.创建数据库    create database 数据库名
+3. 选中数据库   use 数据库名
+4. 删除数据库  drop database 数据库名(删除数据库操作非常危险)
+
+数据表操作: (前提都是要选中数据库)
+1.查看数据表   show tables;
+2.创建表
+      数据类型:int Varchar(N) double(M,N) decimal da]etime
+create table 表明(列名 类型,列名 类型.....);
+(列的名字在前,类型在后)
+3.查看指定表的结构
+   desc  表名;
+desc -> describe 的缩写(描述一个表是啥样子的)
+
+4. 删除表
+ drop table student;
+
+
+comment '姓名'   注释~~
+                               comment 这个注释不太好用,只能在创建表的时候用
+                                ~~
+                              更多推荐--作为注释,或者#也行~~
+
+.有一个商店的数据,记录客户及购物情况,有以下三个表组成:
+.商店goods(商品编号goods_id,商品名goods_name,单价unitprice,商品类别cateegory,供应商provider)
+.客户customer(客户号customer_id,姓名name,住址address,邮箱email,性别sex,身份证card_id)
+.购买purchase(购买订单号order_id,客户号customer_id,商品号goods_id,购买数量nums)
+
+单价使用啥类型表示?
+
+double(3,1)      不精确
+decimal   是更好的选择(更精确)
+此处更好的选择是使用  int!!
+可以使用 分 为单位
+  元 角 分
+
+MySQL表的增删改查
+ 这个章节是mysql最核心的部分!!
+这里涉及到的SQL都是咱们在工作中最常用的
+这些东西掌握了,覆盖日常工作80%+以上的内容
+  新增/插入数据
+   使用
+insert into 表名 values(值,值...);
+  
+insert 语句还有一些变种~~
+ 比如,
+再插入的时候,指定某个/某些列来插入
+
+查找操作
+ 1.全列查找,查找整个表,所有行的所有列~~
+    selcet*from 表名;
+*表示所有的列
+这种特殊含义的符号,计算机叫做"通配符"
+
+
+注意!!既然如此,得出结论:执行select*操作,可能会非常危险
